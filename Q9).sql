@@ -1,0 +1,1 @@
+select c.name,avg(f.length) as avg_length from category c inner join film_category fc on c.category_id=fc.category_id inner join film f on f.film_id=fc.film_id group by (c.name) having avg(length) > (select avg(length) from film) order by avg(length) desc;
